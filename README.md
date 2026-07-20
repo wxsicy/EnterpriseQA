@@ -4,11 +4,11 @@
 
 ## 技术栈
 
-前端：Vue 3 + Element Plus + Vite + ECharts
-后端：Flask + LangChain + ChromaDB
-大模型：小米 MiMo（mimo-v2.5-pro）+ 阿里云百炼嵌入模型（qwen3.7-text-embedding）
-数据库：MySQL 8.0
-向量库：ChromaDB（本地持久化）
+- **前端**：Vue 3 + Element Plus + Vite + ECharts
+- **后端**：Flask + LangChain + ChromaDB
+- **大模型**：小米 MiMo（mimo-v2.5-pro）+ 阿里云百炼嵌入模型（qwen3.7-text-embedding）
+- **数据库**：MySQL 8.0
+- **向量库**：ChromaDB（本地持久化）
 
 ## 功能特性
 
@@ -29,37 +29,50 @@
 
 ### 2. 克隆项目
 
+`ash
 git clone https://github.com/wxsicy/EnterpriseQA.git
 cd EnterpriseQA
+`
 
 ### 3. 配置环境变量
 
+`ash
 cd server
 cp .env.example .env
+`
 
 编辑 .env 文件，填入你自己的配置：
 
-- LLM_API_KEY：大模型 API Key
-- LLM_BASE_URL：大模型 API 地址
-- LLM_MODEL：大模型名称
-- EMBED_API_KEY：嵌入模型 API Key
-- EMBED_BASE_URL：嵌入模型 API 地址
-- EMBED_MODEL：嵌入模型名称
-- MYSQL_PASSWORD：MySQL 密码
+| 变量 | 说明 |
+|------|------|
+| LLM_API_KEY | 大模型 API Key |
+| LLM_BASE_URL | 大模型 API 地址 |
+| LLM_MODEL | 大模型名称 |
+| EMBED_API_KEY | 嵌入模型 API Key |
+| EMBED_BASE_URL | 嵌入模型 API 地址 |
+| EMBED_MODEL | 嵌入模型名称 |
+| MYSQL_PASSWORD | MySQL 密码 |
 
 ### 4. 初始化数据库
 
+`ash
 mysql -u root -p < server/sql/init.sql
+`
 
 默认测试账号：
-- 管理员：admin / 123456
-- 普通用户：user1 / 123456
+
+| 角色 | 用户名 | 密码 |
+|------|--------|------|
+| 管理员 | admin | 123456 |
+| 普通用户 | user1 | 123456 |
 
 ### 5. 安装后端依赖并启动
 
+`ash
 cd server
 pip install -r requirements.txt
 python app.py
+`
 
 后端默认运行在 http://localhost:5000
 
@@ -67,9 +80,11 @@ python app.py
 
 新开一个终端：
 
+`ash
 cd client
 npm install
 npm run dev
+`
 
 前端默认运行在 http://localhost:3000
 
@@ -81,25 +96,32 @@ npm run dev
 
 `
 EnterpriseQA/
-├── client/                    # 前端（Vue 3）
+│
+├── client/                          # 前端（Vue 3）
 │   ├── src/
-│   │   ├── api/               # API 请求封装
-│   │   ├── components/        # 公共组件
-│   │   ├── router/            # 路由配置
-│   │   ├── stores/            # Pinia 状态管理
-│   │   └── views/             # 页面视图
+│   │   ├── api/                     # API 请求封装
+│   │   ├── components/              # 公共组件
+│   │   ├── router/                  # 路由配置
+│   │   ├── stores/                  # Pinia 状态管理
+│   │   └── views/                   # 页面视图
 │   ├── package.json
 │   └── vite.config.js
-├── server/                    # 后端（Flask）
-│   ├── models/                # 数据库模型
-│   ├── routes/                # API 路由
-│   ├── services/              # 核心服务（RAG、向量化、嵌入）
-│   ├── utils/                 # 工具函数
-│   ├── sql/                   # 数据库初始化脚本
-│   ├── test_docs/             # 测试文档
-│   ├── app.py                 # 应用入口
-│   ├── config.py              # 配置文件
+│
+├── server/                          # 后端（Flask）
+│   ├── models/                      # 数据库模型
+│   ├── routes/                      # API 路由
+│   ├── services/                    # 核心服务
+│   │   ├── rag_service.py           # RAG 问答服务
+│   │   ├── vector_service.py        # 文档向量化服务
+│   │   └── embeddings.py            # 嵌入模型封装
+│   ├── utils/                       # 工具函数
+│   ├── sql/                         # 数据库初始化脚本
+│   ├── test_docs/                   # 测试文档
+│   ├── app.py                       # 应用入口
+│   ├── config.py                    # 配置文件
 │   └── requirements.txt
+│
+├── .env.example                     # 环境变量模板
 ├── .gitignore
 └── README.md
 `
@@ -108,11 +130,13 @@ EnterpriseQA/
 
 本项目使用 OpenAI 兼容接口，理论上支持所有兼容 OpenAI API 格式的大模型服务：
 
-- 小米 MiMo：https://api.xiaomimimo.com/v1
-- 通义千问（DashScope）：https://dashscope.aliyuncs.com/compatible-mode/v1
-- DeepSeek：https://api.deepseek.com
-- OpenAI：https://api.openai.com/v1
-- 硅基流动：https://api.siliconflow.cn/v1
+| 服务商 | Base URL | 示例模型 |
+|--------|----------|----------|
+| 小米 MiMo | https://api.xiaomimimo.com/v1 | mimo-v2.5-pro |
+| 通义千问 | https://dashscope.aliyuncs.com/compatible-mode/v1 | qwen-plus |
+| DeepSeek | https://api.deepseek.com | deepseek-chat |
+| OpenAI | https://api.openai.com/v1 | gpt-4o |
+| 硅基流动 | https://api.siliconflow.cn/v1 | Qwen/Qwen2.5-7B-Instruct |
 
 ## 注意事项
 
