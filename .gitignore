@@ -1,0 +1,32 @@
+﻿# 环境变量（含API密钥）
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 上传的文件
+server/uploads/*
+!server/uploads/.gitkeep
+
+# ChromaDB数据
+server/chroma_data/
+
+# Node.js
+client/node_modules/
+client/dist/
+
+# OS
+.DS_Store
+Thumbs.db
