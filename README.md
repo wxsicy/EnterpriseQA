@@ -1,4 +1,4 @@
-﻿# 企业内部知识库智能问答系统
+# 企业内部知识库智能问答系统
 
 基于 RAG（检索增强生成）架构的企业知识库问答系统，支持文档上传、向量化、智能问答等功能。
 
@@ -29,19 +29,19 @@
 
 ### 2. 克隆项目
 
-`ash
+```bash
 git clone https://github.com/wxsicy/EnterpriseQA.git
 cd EnterpriseQA
-`
+```
 
 ### 3. 配置环境变量
 
-`ash
+```bash
 cd server
 cp .env.example .env
-`
+```
 
-编辑 .env 文件，填入你自己的配置：
+编辑 `.env` 文件，填入你自己的配置：
 
 | 变量 | 说明 |
 |------|------|
@@ -55,9 +55,9 @@ cp .env.example .env
 
 ### 4. 初始化数据库
 
-`ash
+```bash
 mysql -u root -p < server/sql/init.sql
-`
+```
 
 默认测试账号：
 
@@ -68,33 +68,33 @@ mysql -u root -p < server/sql/init.sql
 
 ### 5. 安装后端依赖并启动
 
-`ash
+```bash
 cd server
 pip install -r requirements.txt
 python app.py
-`
+```
 
-后端默认运行在 http://localhost:5000
+后端默认运行在 `http://localhost:5000`
 
 ### 6. 安装前端依赖并启动
 
 新开一个终端：
 
-`ash
+```bash
 cd client
 npm install
 npm run dev
-`
+```
 
-前端默认运行在 http://localhost:3000
+前端默认运行在 `http://localhost:3000`
 
 ### 7. 使用
 
-浏览器访问 http://localhost:3000，登录后即可使用。
+浏览器访问 `http://localhost:3000`，登录后即可使用。
 
 ## 项目结构
 
-`
+```
 EnterpriseQA/
 │
 ├── client/                          # 前端（Vue 3）
@@ -124,7 +124,7 @@ EnterpriseQA/
 ├── .env.example                     # 环境变量模板
 ├── .gitignore
 └── README.md
-`
+```
 
 ## 支持的模型
 
@@ -140,7 +140,7 @@ EnterpriseQA/
 
 ## 注意事项
 
-- .env 文件包含敏感信息，不会被提交到 Git
-- 上传的文档和向量数据存储在 server/uploads 和 server/chroma_data 目录下，已在 .gitignore 中排除
+- `.env` 文件包含敏感信息，不会被提交到 Git
+- 上传的文档和向量数据存储在 `server/uploads` 和 `server/chroma_data` 目录下，已在 `.gitignore` 中排除
 - 文档上传和向量化需要嵌入模型 API 可用
 - 智能问答需要大模型 API 可用
