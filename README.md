@@ -19,6 +19,8 @@
 - 对话历史：记录所有问答记录，支持按知识库和会话查看
 - 数据统计：知识库数量、文档数量、问答次数等可视化展示
 
+## 功能展示
+
 模块 1 — 用户登录
 标题：用户登录
 描述：支持管理员和普通用户两种角色登录，采用 JWT Token 认证，保障接口安全。
@@ -26,6 +28,7 @@
 - 用户名密码登录，Token 自动管理
 - 角色权限控制，管理员可访问后台管理
 - 未登录自动跳转登录页
+<img width="1751" height="1086" alt="屏幕截图 2026-08-24 095242" src="https://github.com/user-attachments/assets/dde63cba-a72a-4203-9b08-31acbe4ab360" />
 
 模块 2 — 智能问答
 标题：智能问答
@@ -34,6 +37,7 @@
 - 左侧选择知识库，右侧实时对话
 - 回答附带参考文档来源，可追溯
 - 支持多轮对话，按会话管理记录
+<img width="2530" height="1348" alt="image" src="https://github.com/user-attachments/assets/d2991f73-b641-4365-b869-86f6ddc45dbb" />
 
 模块 3 — 知识库管理
 标题：知识库管理
@@ -42,6 +46,7 @@
 - 创建、编辑、删除知识库
 - 查看每个知识库的文档数量和状态
 - 支持启用/禁用知识库
+<img width="2535" height="1059" alt="image" src="https://github.com/user-attachments/assets/9f7b4bd8-2029-4e48-83cd-229947cd8ab9" />
 
 模块 4 — 文档管理
 标题：文档管理
@@ -50,6 +55,7 @@
 - 支持 txt、pdf、md、docx 四种格式
 - 自动文本分块（500 字/块，50 字重叠）
 - 分批 Embedding，带失败重试机制
+<img width="2534" height="1087" alt="image" src="https://github.com/user-attachments/assets/28137dde-556c-40fa-85d4-196f70aea245" />
 
 模块 5 — 数据统计
 描述：可视化展示系统运行数据，帮助管理员了解知识库使用情况和问答活跃度。
@@ -57,6 +63,7 @@
 - 知识库数量、文档总数、问答次数统计
 - ECharts 图表展示趋势变化
 - 用户活跃度与热门问题分析
+<img width="2535" height="1221" alt="屏幕截图 2026-08-24 110909" src="https://github.com/user-attachments/assets/1dd2f870-5027-4fae-9748-786c5414c7b7" />
 
 模块 6 — 用户管理
 标题：用户管理
@@ -65,7 +72,7 @@
 - 用户列表与角色管理
 - 新增、编辑、删除用户
 - 管理员与普通用户权限隔离
-
+<img width="2540" height="721" alt="image" src="https://github.com/user-attachments/assets/25a33b56-b732-4804-b186-680c67600a3e" />
 
 ## 快速开始
 
